@@ -19,7 +19,42 @@ class OmdbContainer extends Component {
       .catch(err => console.log(err));
   };
 
+  componentDidMount() {
+    this.searchMovies("Dumb and Dumber")
+  } 
+
+  handleInputChange = event => {
+
+    const value = event.target.value
+
+    this.setState({
+      search: value
+    })
+  }
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+
+    this.searchMovies(this.state.search)
+  }
+
   render() {
+
+    const foundResult = this.state.result;
+    let showDetails;
+    if (foundResult.Response === "False") {
+      showDetails = <h3>No matching movie was found.  Try something else!</h3>
+    } else {
+      showDetails =             <MovieDetail
+      title={foundResult.Title}
+      src={foundResult.Poster}
+      director={foundResult.Director}
+      genre={foundResult.Genre}
+      released={foundResult.Released}
+    />
+    }
+  
+
     return (
       <Container>
         <Row>
@@ -27,13 +62,7 @@ class OmdbContainer extends Component {
             <Card
               heading={this.state.result.Title || "Search for a Movie to Begin"}
             >
-              <MovieDetail
-                title={this.state.result.Title}
-                src={this.state.result.Poster}
-                director={this.state.result.Director}
-                genre={this.state.result.Genre}
-                released={this.state.result.Released}
-              />
+            {showDetails}
             </Card>
           </Col>
           <Col size="md-4">
