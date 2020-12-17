@@ -1,8 +1,13 @@
 import React from "react";
-import PortfolioContainer from "./components/PortfolioContainer";
+import Signup from "./pages/Signup";
+import "./App.css";
 
 function App() {
-  return <PortfolioContainer />;
+  return (
+    <div className="App">
+      <Signup />
+    </div>
+  );
 }
 
 export default App;
