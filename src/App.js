@@ -1,20 +1,25 @@
-import * as React from "react";
-import Layout from "./components/Layout";
-import Card from "./components/Card";
-import "./App.css"; // Set the theme of the page to default to "light"
-import ThemeContext from "./utils/ThemeContext";
-
-console.log(ThemeContext);
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Signup from "./pages/Signup";
+import Search from "./pages/Search";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Wrapper from "./components/Wrapper";
+import "./App.css";
 
 function App() {
-  // App component that provides initial context values
-  // Here we are overwritting the context to be "dark" using the Provider
   return (
-      <Layout>
-        <ThemeContext.Provider value={"green"}>
-          <Card />
-        </ThemeContext.Provider>
-      </Layout>
+    <Router>
+      <div>
+        <Navbar />
+        <Wrapper>
+          <Route exact path="/" component={Search} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/search" component={Search} />
+        </Wrapper>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
