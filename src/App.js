@@ -1,56 +1,29 @@
-import * as React from "react";
-import "./App.css"; // Set the theme of the page to default to "light"
-const ThemeContext = React.createContext("light");
+import React from "react";
+import "./App.css";
 
-console.log(ThemeContext);
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Wrapper from "./components/Wrapper";
 
-function App() {
-  // App component that provides initial context values
-  // Here we are overwritting the context to be "dark" using the Provider
+import Signup from "./pages/Signup";
+import Search from "./pages/Search";
+
+const App = () => {
+  document.title = "Wikipedia Searcher";
   return (
-    <ThemeContext.Provider value={"dark"}>
-      <Layout />
-    </ThemeContext.Provider>
-  );
-}
-
-// This component sits in between our Content and App components
-// Thanks to the Context API, we do not need to pass any props through this component
-function Layout() {
-  return (
-    <div>
-      <h1 style={{ textAlign: "center" }}>Consuming Context</h1>
-      <div style={{ margin: "0 auto" }}>
-        <Card />
+    <Router>
+      <div>
+        <Navbar />
+        <Wrapper>
+          <Route exact path="/" component={Search} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/search" component={Search} />
+        </Wrapper>
+        <Footer />
       </div>
-    </div>
+    </Router>
   );
-}
-
-// We access the value stored in context using Consumer
-function Card() {
-  return (
-    <ThemeContext.Consumer>
-      {theme => (
-        <div
-          className="card"
-          style={{
-            backgroundColor: theme === "dark" ? "dimgray" : "white",
-            textAlign: "center"
-          }}
-        >
-          <div
-            style={{
-              color: theme === "dark" ? "white" : "black",
-              textAlign: "center"
-            }}
-          >
-            The theme is: {theme}
-          </div>
-        </div>
-      )}
-    </ThemeContext.Consumer>
-  );
-}
+};
 
 export default App;
