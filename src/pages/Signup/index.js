@@ -3,7 +3,7 @@ import Container from "../../components/Container";
 import Col from "../../components/Col";
 import Row from "../../components/Row";
 
-const Signup = () => {
+function Signup() {
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
@@ -53,6 +53,6 @@ const Signup = () => {
       </form>
     </div>
   );
-};
+}
 
 export default Signup;
