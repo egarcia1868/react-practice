@@ -1,6 +1,6 @@
 import React from "react";
 
-function Alert(props) {
+const Alert = props => {
   return (
     <div
       role="alert"
@@ -10,6 +10,6 @@ function Alert(props) {
       {props.children}
     </div>
   );
-}
+};
 
 export default Alert;
