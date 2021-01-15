@@ -1,12 +1,18 @@
 import React from "react";
-import Survey from "./pages/Survey";
-import "./App.css";
+import Gallery from "./pages/Gallery";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Wrapper from "./components/Wrapper";
 
 function App() {
   return (
-      <div>
-          <Survey />
-      </div>
+    <div>
+      <Navbar />
+      <Wrapper>
+        <Gallery />
+      </Wrapper>
+      <Footer />
+    </div>
   );
 }
 
