@@ -14,7 +14,7 @@
 
 .back {
   top: 50%;
-  left: 20%;
+  left: 1%;
   background: #43a047;
 }
 
@@ -24,7 +24,7 @@
 
 .next {
   top: 50%;
-  right: 20%;
+  right: 1%;
   background: #43a047;
 }
 

@@ -1,3 +1,7 @@
-.blue {
-  color: blue;
+.heading {
+  background-color: white;
+  width: 100%;
+}
+h2 {
+  text-align: center;
 }
