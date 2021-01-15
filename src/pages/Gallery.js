@@ -59,7 +59,12 @@ function Gallery() {
       <p className="text-center h3">Click on the arrows to browse users</p>
       <Row>
         {/* Pass props to the card container */}
-        <CardContainer />
+        <CardContainer 
+          title={user.login}
+          profileUrl={user.profileUrl}
+          image={user.image}
+          handleBtnClick={handleBtnClick}
+        />
       </Row>
     </div>
   );

@@ -2,10 +2,12 @@ import React from "react";
 import "./style.css";
 import CardTitleText from "../CardTitleText";
 
-function CardTitle() {
+function CardTitle(props) {
   return (
     <div className="blue text-center">
-      <CardTitleText />
+      <CardTitleText 
+        title={props.title}
+      />
     </div>
   );
 }

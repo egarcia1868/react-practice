@@ -1,9 +1,9 @@
 import React from "react";
 
-function CardBody() {
+function CardBody(props) {
   return (
     <p className="h4 pt-3">
-      GitHub: <a target="blank" href={"#GITHUB PROFILE URL HERE"}>{"GITHUB PROFILE URL HERE"}</a>
+      GitHub: <a target="_blank" rel="noreferrer" href={props.profileUrl}>{props.profileUrl}</a>
     </p>
   );
 }

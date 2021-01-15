@@ -11,15 +11,23 @@ function Card(props) {
   */
   return (
     <div>
-      <CardHeading />
-      <CardImg  />
-      <CardBody  />
+      <CardHeading 
+        title={props.title}
+      />
+      <CardImg  
+        image={props.image}
+      />
+      <CardBody  
+        profileUrl={props.profileUrl}
+      />
       {!props.image && <i className="fa fa-spinner fa-spin" aria-hidden="true" />}
       <CardBtn
+        onClick={props.handleBtnClick}
         style={{ opacity: props.image ? 1 : 0 }}
         data-value="back"
       />
       <CardBtn
+        onClick={props.handleBtnClick}
         style={{ opacity: props.image ? 1 : 0 }}
         data-value="next"
       />

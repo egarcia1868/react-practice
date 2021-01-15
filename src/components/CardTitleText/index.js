@@ -1,7 +1,7 @@
 import React from "react";
 
-function CardTitleText() {
-  return <h2>{"NAME GOES HERE"}</h2>;
+function CardTitleText(props) {
+  return <h2>{props.title}</h2>;
 }
 
 export default CardTitleText;
